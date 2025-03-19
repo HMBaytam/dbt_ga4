@@ -1,1 +1,5 @@
 .venv
+target/
+dbt_packages/
+logs/
+rosy-acolyte-367519-2144bb3fd33e.json
