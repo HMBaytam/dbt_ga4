@@ -32,5 +32,19 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   ga4_dbt_core:
     # Config indicated by + and applies to all files under models/example/
-    example:
+    ga4_base:
+      +docs:
+        node_color: DarkGreen
       +materialized: view
+      +persist_docs:
+        relation: true
+        columns: true
+      +schema: base
+
+tests:
+  +severity: warn
+
+
+vars:
+  my_project:
+    example_var: DATE('2023-01-01')
