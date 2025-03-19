@@ -1,20 +1,16 @@
--- base_analytics__events.sql
--- base model for GA4 data exported to BigQuery
--- configured to build an incrementally-materialised table
--- See GA4 Export Schema: https://support.google.com/analytics/answer/7029846?hl=en
-
 {{
-  config(
-    materialized = 'incremental',
-    partition_by = {
-      'field': 'event_date', 
-      'data_type': 'date', 
-      'granularity': 'day'},
-    incremental_strategy = 'insert_overwrite',
-    unique_key='event_id',
-    on_schema_change = 'fail',
-    tags=['incremental', 'daily']
-  )
+    config(
+        materialized = 'table',
+        partitioned_by = {
+            'field': 'event_date', 
+            'data_type': 'date', 
+            'granularity': 'day'
+        },
+        incremental_strategy = 'insert_overwrite',
+        unique_key='event_id',
+        on_schema_change = 'fail',
+        tags=['incremental', 'daily']
+    )
 }}
 
     SELECT
