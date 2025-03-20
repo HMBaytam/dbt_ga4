@@ -86,7 +86,7 @@ models:
           (more ecommerce information; irrelevant to us)
   
   - name: ga4_base_users
-    description: "Date-partitioned table containing pseudonymous user data"
+    description: "Date-partitioned table containing user data"
     columns:
       - name: user_id
         description: "Identifies a (logged-in) platform user, or '0' if they were logged out"
